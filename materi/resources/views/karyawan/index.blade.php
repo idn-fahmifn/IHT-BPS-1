@@ -22,16 +22,17 @@
                             </tr>
                         </thead>
                         <tbody class="border border-slate-500">
-                            <tr class="border border-slate-500">
-                                <td>The Sliding Mr. Bones (Next Stop, Pottersville)</td>
-                                <td>Malcolm Lockyer</td>
-                                <td>1961</td>
-                            </tr>
+                            @foreach ($data as $item)
+                                <tr class="border border-slate-500">
+                                    <td>{{$item->nama}}</td>
+                                    <td>{{$item->umur}}</td>
+                                    <td>{{$item->jabatan}}</td>
+                                </tr>
+                            @endforeach
+
                         </tbody>
                     </table>
                 </div>
-
-
             </div>
         </div>
     </div>

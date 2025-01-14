@@ -19,6 +19,7 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::get('karyawan', [KaryawanController::class, 'index'])->name('karyawan.index');
+Route::get('karyawan/create', [KaryawanController::class, 'create'])->name('karyawan.create');
 
 
 require __DIR__.'/auth.php';
