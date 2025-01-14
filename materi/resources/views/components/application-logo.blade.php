@@ -1,0 +1,1 @@
+<img src="https://www.idn.id/storage/2020/05/cropped-logo-idn-baru-samping-merah-1.png" width="70" class="p-4" alt="Logo App">
