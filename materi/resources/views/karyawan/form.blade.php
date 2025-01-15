@@ -9,7 +9,7 @@
         </p>
     </header>
 
-    <form method="post" action="#" class="mt-6 space-y-6">
+    <form method="post" action="{{route('karyawan.post')}}" class="mt-6 space-y-6">
         @csrf
         <div>
             <x-input-label for="name" :value="__('Nama Lengkap')" />
