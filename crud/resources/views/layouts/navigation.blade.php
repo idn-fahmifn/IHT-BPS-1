@@ -80,6 +80,12 @@
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('menu.index')" :active="request()->routeIs('menu.index')">
+                {{ __('Menu') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('food.index')" :active="request()->routeIs('food.index')">
+                {{ __('Food') }}
+            </x-responsive-nav-link>
         </div>
 
         <!-- Responsive Settings Options -->

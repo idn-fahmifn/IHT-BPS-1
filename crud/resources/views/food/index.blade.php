@@ -37,8 +37,12 @@
                                     <td class="px-4 py-2">Rp. {{$item->harga}}</td>
                                     <td class="px-4 py-2">{{$item->menu->nama_menu}}</td>
                                     <td class="px-4 py-2">
-                                        <a href="{{route('food.show', $item->id)}}" class="text-red-600">Detail</a>
-                                        <a href="#" class="text-red-600 ml-4">Hapus</a>
+                                        <form action="{{route('food.destroy', $item->id)}}" method="post">
+                                            @csrf
+                                            @method('delete')
+                                            <a href="{{route('food.show', $item->id)}}" class="text-red-600">Detail</a>
+                                            <button type="submit" class="text-red-600" onclick="return confirm('Hapus nih??')">Hapus</button>
+                                        </form>
                                     </td>
                                 </tr>
                                 @endforeach
