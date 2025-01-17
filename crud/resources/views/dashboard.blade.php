@@ -37,5 +37,19 @@
         <div class="py-6 px-8">
             <h4 class="text-gray-600 font-semibold">Daftar Menu</h4>
         </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            <!-- Card 1 -->
+
+            @foreach ($data as $item)
+            <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                <img src="{{asset('storage/images/food/'.$item->gambar)}}" alt="Menu Makanan" class="w-full h-40 object-cover">
+                <div class="p-4">
+                    <h2 class="font-bold text-lg">{{$item->nama_makanan}}</h2>
+                    <p class="text-gray-600">{{$item->menu->nama_menu}}</p>
+                    <a href="{{route('menu.show', $item->id)}}" class="mt-4 flex items-center justify-center px-4 py-2 w-full text-white bg-red-500 hover:bg-red-600 py-2 px-4 rounded">Detail</a>
+                </div>
+            </div>
+            @endforeach
+        </div>
     </div>
 </x-app-layout>
