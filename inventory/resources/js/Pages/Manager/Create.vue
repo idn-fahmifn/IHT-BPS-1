@@ -4,6 +4,17 @@ import { Head, Link, useForm } from "@inertiajs/vue3";
 import InputError from "@/Components/InputError.vue";
 
 
+const form = useForm({
+    name: null,
+    email: null,
+    password: null,
+});
+
+const submit = () => {
+    form.post(route('manager.store'));
+}
+
+
 </script>
 
 <template>
@@ -19,7 +30,7 @@ import InputError from "@/Components/InputError.vue";
         <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
             <div class="lg:grid lg:grid-cols-12 lg:gap-x-5">
                 <div class="space-y-6 sm:px-6 lg:px-0 lg:col-span-12">
-                    <form @submit.prevent="submit" enctype="multipart/form-data">
+                    <form @submit.prevent="submit">
                         <div class="shadow sm:rounded-md sm:overflow-hidden">
                             <div class="bg-white py-6 px-4 space-y-6 sm:p-6">
                                 <div>
@@ -34,20 +45,18 @@ import InputError from "@/Components/InputError.vue";
                                 <div class="grid grid-cols-6 gap-6">
                                     <div class="col-span-6 sm:col-span-3">
                                         <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
-                                        <input type="text" id="name"
-                                            class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                                            />
-                                        <!-- <InputError class="mt-2" :message="form.errors.name" /> -->
+                                        <input v-model="form.name" type="text" id="name"
+                                            class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
+                                        <InputError class="mt-2" :message="form.errors.name" />
                                     </div>
                                 </div>
 
                                 <div class="grid grid-cols-6 gap-6">
                                     <div class="col-span-6 sm:col-span-3">
                                         <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
-                                        <input type="email" id="email"
-                                            class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                                            />
-                                        <!-- <InputError class="mt-2" :message="form.errors.email" /> -->
+                                        <input v-model="form.email" type="email" id="email"
+                                            class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
+                                        <InputError class="mt-2" :message="form.errors.email" />
                                     </div>
                                 </div>
 
@@ -55,10 +64,9 @@ import InputError from "@/Components/InputError.vue";
                                     <div class="col-span-6 sm:col-span-3">
                                         <label for="password"
                                             class="block text-sm font-medium text-gray-700">Password</label>
-                                        <input type="password" id="password"
-                                            class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                                             />
-                                        <!-- <InputError class="mt-2" :message="form.errors.password" /> -->
+                                        <input v-model="form.password" type="password" id="password"
+                                            class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
+                                        <InputError class="mt-2" :message="form.errors.password" />
                                     </div>
                                 </div>
 

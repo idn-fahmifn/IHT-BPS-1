@@ -33,7 +33,9 @@ class ManagerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $input = $request->all();
+        User::create($input);
+        return redirect()->route('manager.index');
     }
 
     /**
