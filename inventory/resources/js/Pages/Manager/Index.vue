@@ -2,6 +2,13 @@
 import Magnify from '@/Components/Magnify.vue';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import { Head, Link } from '@inertiajs/vue3';
+
+
+defineProps({
+    users: Object
+})
+
+
 </script>
 
 <template>
@@ -25,7 +32,7 @@ import { Head, Link } from '@inertiajs/vue3';
                             <h1 class="text-lg font-semibold text-gray-900">Manager Room</h1>
                             <span class="text-sm text-gray-500">List Manager</span>
                         </div>
-                        
+
                         <!-- Kanan -->
                         <div>
                             <a href="#" class="text-white bg-red-700 py-2 px-4 hover:bg-red-500 rounded-md">Create
@@ -45,7 +52,6 @@ import { Head, Link } from '@inertiajs/vue3';
                                     class="block rounded-lg border-0 py-2 pl-10 text-gray-900 ring-1 ring-inset ring-gray-200 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
                             </div>
                         </div>
-
                         <table class="table-auto w-full border mt-4">
                             <thead class="bg-red-100">
                                 <tr>
@@ -55,11 +61,11 @@ import { Head, Link } from '@inertiajs/vue3';
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td class="border p-2">Fahmi</td>
-                                    <td class="border p-2">fahmi@test.com</td>
+                                <tr v-for="item in users.data" :key="item.id">
+                                    <td class="border p-2">{{ item.name }}</td>
+                                    <td class="border p-2">{{ item.email }}</td>
                                     <td class="border p-2 text-center">
-                                        <Link class="text-red-600 hover:text-red-900">
+                                        <Link class="text-red-600 hover:text-red-900" :href="route('manager.show', item.id)">
                                         Detail
                                         </Link>
                                         <button class="ml-2 text-red-600 hover:text-red-900">
